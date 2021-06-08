@@ -1,0 +1,16 @@
+ .table{
+    border: ridge 7px #BE1A1A;
+ }
+
+ tbody{
+     background-color: #ECEBEB;
+ }
+
+ .table-tr{
+     background-color: #D3D3D3;
+ }
+
+ td{
+    border: solid 2px #BE1A1A;
+    padding: 10px;
+ }
