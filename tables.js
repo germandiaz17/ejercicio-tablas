@@ -53,63 +53,48 @@ const users = [
 
 
 
+    // CONTENEDOR PRINCIPAL
+    let contenedor = document.getElementById('container');
+
+
+
 for(let i = 0; i < users.length; i++){
     if(users[i].email.endsWith('@academlo.com') === true){
-        
-        // AGREGO CONTENEDOR TR POR CADA ELEMENTO positivo
-        let contenedor = document.getElementById('container');
 
-        (function(){
-            let Fila = document.createElement('tr');
-            Fila.setAttribute('id', 'Fila');
-            contenedor.appendChild(Fila);
+        //CREAMOS TABLAS Y INGRESAMOS TEXTO DENTRO DE ELLAS
+        let newRow = document.createElement('tr');
+        contenedor.appendChild(newRow);
+
+        let userName = document.createElement('td');
+        userName.innerText = users[i].name;
+
+        let userEmail = document.createElement('td');
+        userEmail.innerText =  users[i].email;
+
+        let userAge = document.createElement('td');
+        userAge.innerText = users[i].age;
+
+        let userGender = document.createElement('td');
+        userGender.innerText = users[i].gender;
+
+        let socialContainer = document.createElement('div');
 
 
-        // INSERTA DE DATOS
 
-            // Nombre
-            let Name = document.createElement('td');
-            Name.innerText = users[i].name;
-            Fila.appendChild(Name);
+        //RECORRIDO DEL CAMPO SOCIAL
+        for(let index = 0; index < users[i].social.length; index++){
+            let userSocial = document.createElement('td');
+            userSocial.innerText = users[i].social[index].url;
+            socialContainer.appendChild(userSocial);
+        }
 
-            // Email
-            let Email = document.createElement('td');
-            Email.innerText = users[i].email;
-            Fila.appendChild(Email);
 
-            // Edad
-            let Edad = document.createElement('td');
-            Edad.innerText = users[i].age;
-            Fila.appendChild(Edad);
 
-            // Sexo
-            let Sexo = document.createElement('td');
-            Sexo.innerText = users[i].gender;
-            Fila.appendChild(Sexo);
-
-            // Redes Sociales
-            let Redes = document.createElement('td');
-            Fila.appendChild(Redes);
-
-            let Lista = document.createElement('ul');
-            Redes.appendChild(Lista);
-            
-
-            // MEJORAR CODIGO
-
-            let Elements = document.createElement('li');
-            Lista.appendChild(Elements);
-
-            let Networks1 = document.createElement('a');
-            Networks1.innerText = users[i].social[0].url;
-            Lista.appendChild(Networks1);
-
-            let Networks2 = document.createElement('a');
-            Networks2.innerText = users[i].social[1].url;
-            Lista.appendChild(Networks2);
-
-            
-        })();
-
+        //INGRESO DE LAS TABLAS A LA TABLA PRINCIPAL COMO HIJAS
+        newRow.appendChild(userName);
+        newRow.appendChild(userEmail);
+        newRow.appendChild(userAge);
+        newRow.appendChild(userGender);
+        newRow.appendChild(socialContainer);
     }
 }

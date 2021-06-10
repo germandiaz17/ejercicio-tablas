@@ -12,5 +12,9 @@
 
  td{
     border: solid 2px #BE1A1A;
-    padding: 10px;
+    padding: 5px;
+ }
+
+ li{
+     list-style: none;
  }
